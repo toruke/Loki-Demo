@@ -4,40 +4,42 @@
 
 ---
 ## **Étapes pour une démo**
-## 1. Cloner le repo 
+### **1. Cloner le repo**
 
-- commencer par copier le projet :
-````
-git clone https://github.com/toruke/Loki-Demo.git
-cd Loki-Demo
-````
+- Commence par copier le projet :
+  
+- `git clone https://github.com/toruke/Loki-Demo.git cd Loki-Demo`
 
-- puis lancer le compose 
+- Puis lance Docker Compose :
 
-````
-docker compose up
-````
+- `docker compose up`
 
-- puis lancer votre navigateur préférer (firefox):
+- Ouvre ensuite ton navigateur préféré (Firefox) à l'adresse : [http://localhost:3000](http://localhost:3000) _(Ici, nous sommes sur Grafana, ce qui va nous permettre de visualiser les logs.)_
+### **2. Configurer Grafana pour utiliser Loki**
 
-http://localhost:3000
-ici ont est sur grafana se qui va nous permet de visualiser les logs 
+1. **Pour te connecter**, ouvre Grafana dans ton navigateur préféré (Firefox) :
+    
+    - Identifiant : _admin_
+    - Mot de passe : _admin_ _(Changer le mot de passe n'est pas important pour cette démo.)_
+2. **Ajouter Loki comme source de données** :
+    
+    - Va dans **Connections > Data sources**.
+    - Clique sur **Add data source** et choisis **Loki**.
+    - Dans le champ **URL**, entre `http://loki:3100`.
+    - Sauvegarde.
 
+### **3. Visualiser les logs et effectuer des requêtes**
 
-## 2. configurer grafana pour utiliser Loki :
-
-1. pour se connecter Ouvrez Grafana dans votre navigateur préférer (firefox): 
-	- idendifiant : *admin*
-	- mot de passe : *admin*
-	(changer le mot de passe pas important ici )
-2. Ajouter Loki comme source de données :
-   - Aller dans **Connections -> Data source** 
-   - Clique sur **Add data source** et choisis **Loki**.
-   - Dans **URL**, mettez `http://loki:3100`
-   - Sauvegarde.
-
-## 3. générer des logs
-ici je vais générer des logs avec python pour les envoyers à Loki.
-
-
+1. **Rends-toi dans _Explore_** :
+    
+    - Sélectionne Loki. Tu devrais voir une interface similaire à ceci : ![[Pasted image 20251109133710.png]]
+2. **Utiliser le mode "Builder" pour créer une requête** :
+    
+    - Va dans _Select label_ et choisis le label **job**.
+    - Puis, dans _Select value_, choisis la valeur **demo**.
+3. **Exécuter la requête** :
+    
+    - Clique sur le bouton bleu **Run query** et active le bouton **Live** à côté. _(Maintenant, tu vois les logs apparaître en temps réel.)_
+    - Dans _Line contains_, écris **info**. _(Maintenant, nous avons appris à filtrer les logs qui indiquent "info".)_
+    - Tu peux faire de même avec un chiffre ou un autre mot-clé, et Grafana filtrera les logs correspondants.
 ---
