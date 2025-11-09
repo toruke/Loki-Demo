@@ -15,5 +15,5 @@ scrape_configs:
           - localhost
         labels:
           job: demo
-          __path__: /var/log/demo.log  # Chemin vers ton fichier de logs
+          __path__: /var/log/demo/*.log
 
