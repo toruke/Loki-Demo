@@ -8,13 +8,19 @@
 
 - Commence par copier le projet :
   
-- `git clone https://github.com/toruke/Loki-Demo.git cd Loki-Demo`
+ ```
+git clone https://github.com/toruke/Loki-Demo.git 
+cd Loki-Demo
+ ```
 
 - Puis lance Docker Compose :
-
-- `docker compose up`
-
+```
+ docker compose up
+```
 - Ouvre ensuite ton navigateur préféré (Firefox) à l'adresse : [http://localhost:3000](http://localhost:3000) _(Ici, nous sommes sur Grafana, ce qui va nous permettre de visualiser les logs.)_
+
+---
+
 ### **2. Configurer Grafana pour utiliser Loki**
 
 1. **Pour te connecter**, ouvre Grafana dans ton navigateur préféré (Firefox) :
@@ -28,11 +34,16 @@
     - Dans le champ **URL**, entre `http://loki:3100`.
     - Sauvegarde.
 
+---
+
 ### **3. Visualiser les logs et effectuer des requêtes**
 
 1. **Rends-toi dans _Explore_** :
     
-    - Sélectionne Loki. Tu devrais voir une interface similaire à ceci : ![[Pasted image 20251109133710.png]]
+    - Sélectionne Loki. Tu devrais voir une interface similaire à ceci :
+   
+      <img width="auto" height="auto" alt="Screenshot From 2025-11-09 13-37-08" src="https://github.com/user-attachments/assets/990ecd46-5256-496c-953a-c48288da7ef0" />
+
 2. **Utiliser le mode "Builder" pour créer une requête** :
     
     - Va dans _Select label_ et choisis le label **job**.
